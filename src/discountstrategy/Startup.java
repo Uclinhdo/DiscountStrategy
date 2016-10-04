@@ -16,6 +16,11 @@ public class Startup {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Register reg = new Register();
+        reg.startNewSale("DUTL");
+        reg.addProduct("A123");
+        reg.addProduct("B345");
+        reg.endSale();
     }
     
 }

@@ -9,7 +9,7 @@ package discountstrategy;
  *
  * @author linhdo
  */
-public interface DataAccessingStrategy {
+public interface DataStorage {
 
     Customer findValidCustomer(String customerId);
 

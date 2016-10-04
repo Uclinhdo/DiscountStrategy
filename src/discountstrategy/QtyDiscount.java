@@ -11,9 +11,11 @@ package discountstrategy;
  */
 public class QtyDiscount implements DiscountStrategy {
     private double discountRate = 0.10;
+    private int qty;
 
-    public QtyDiscount(double discountRate) {
+    public QtyDiscount(double discountRate, int qty) {
         this.discountRate = discountRate;
+        this.qty = qty;
     }
     
     
@@ -35,5 +37,16 @@ public class QtyDiscount implements DiscountStrategy {
     public final void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }    
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+    
+    
+    
     
 }

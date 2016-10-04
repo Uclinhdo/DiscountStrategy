@@ -9,7 +9,7 @@ package discountstrategy;
  *
  * @author linhdo
  */
-public class MakeupDatabase implements DataAccessingStrategy {
+public class MakeupDatabase implements DataStorage {
    private Customer [] customers= { new Customer ("DUTL","Linh","Do","888-888-8888"),
                                     new Customer ("MTRA","Matt","Ament","123-456-7890"),
                                     new Customer ("HEAE","Ares","Ament","999-999-9999")
@@ -17,7 +17,7 @@ public class MakeupDatabase implements DataAccessingStrategy {
            
     private Product [] products = { new Product("A123","Brewers BLue Hat",29.90, new NoDiscount()),
                                     new Product("B345","Calvin Klein Blue Jeans",88.50,new PercentOffDiscount(0.10)),
-                                    new Product("C157","Lamb Chop-Pet Toy",5.25,new QtyDiscount(.10))
+                                    new Product("C157","Lamb Chop-Pet Toy",5.25,new QtyDiscount(.10,5))
                                   };
     
     
