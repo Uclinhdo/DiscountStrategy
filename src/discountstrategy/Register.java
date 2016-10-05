@@ -10,6 +10,9 @@ package discountstrategy;
  * @author ldo
  */
 public class Register {
+    private Product product;
+    private Receipt receipt;
+    
  
     public void endSale(){
         
@@ -17,10 +20,11 @@ public class Register {
 
     public void startNewSale(String customerId) {
         
+        
     }
 
-   public void addProduct(String productId) {
-        
+   public void addProduct(String productId, int qty) {
+        receipt.AddItemToReceipt(productId, qty);
     }
 
    

@@ -10,7 +10,7 @@ package discountstrategy;
  * @author linhdo
  */
 public class Customer {
-    private String CustomerId;
+    
     private String firstName;
     private String lastName;
     private String address;
@@ -18,9 +18,10 @@ public class Customer {
     private String state;
     private String zipCode;
     private String phoneNumber;
+    private String customerId;
 
-    public Customer(String CustomerId, String firstName, String lastName,String phoneNumber) {
-        this.CustomerId = CustomerId;
+    public Customer(String customerId, String firstName, String lastName,String phoneNumber) {
+        this.customerId = customerId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
@@ -37,11 +38,11 @@ public class Customer {
     
     
     public final String getCustomerId() {
-        return CustomerId;
+        return customerId;
     }
 
-    public final void setCustomerId(String CustomerId) {
-        this.CustomerId = CustomerId;
+    public final void setCustomerId(String customerId) {
+        this.customerId = customerId;
     }
 
     public final String getFirstName() {

@@ -12,51 +12,40 @@ package discountstrategy;
 public class Receipt {
     private Customer customer;
     private Product product;
-    private MakeupDatabase fakedatabase;
-    private LineItem [] item;
+    private DataStorage ds;
+    private LineItem [] listOfitem;
 
-    public Receipt(Customer customer, Product product, MakeupDatabase fakedatabase, LineItem[] item) {
+    public Receipt(Customer customer, Product product, DataStorage ds, LineItem[] listOfitem) {
         this.customer = customer;
         this.product = product;
-        this.fakedatabase = fakedatabase;
-        this.item = item;
+        this.ds= ds;
+        this.listOfitem = listOfitem;
     }
 
+    public void AddItemtoArray(LineItem[] arrayItem ,LineItem item)
+    {
+        LineItem [] temp = new LineItem[arrayItem.length + 1];
+        System.arraycopy(arrayItem, 0, temp, 0, arrayItem.length + 1);
+        
+        temp[arrayItem.length - 1] = item;
+        arrayItem = temp;
+        listOfitem = arrayItem;
+        
+        temp = null;
+        
+    }
     
+    public void AddItemToReceipt(String productId, int qty)
+    {
+        LineItem item = new LineItem(qty,ds.findValidProduct(productId));
+        AddItemtoArray(listOfitem,item);
+        
+    }
     
-    
-    public Customer getCustomer() {
-        return customer;
+    public void AddCustomerToReceipt(String customerId)
+    {
+      //DataStorage customer = new Customer(ds.findValidCustomer(customerId));
     }
-
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public MakeupDatabase getFakedatabase() {
-        return fakedatabase;
-    }
-
-    public void setFakedatabase(MakeupDatabase fakedatabase) {
-        this.fakedatabase = fakedatabase;
-    }
-
-    public LineItem[] getItem() {
-        return item;
-    }
-
-    public void setItem(LineItem[] item) {
-        this.item = item;
-    }
-
     
     
     
