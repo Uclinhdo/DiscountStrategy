@@ -59,11 +59,11 @@ public class Receipt {
   
     
     
-    public ReceiptOutputStrategy getOutput() {
+    public final ReceiptOutputStrategy getOutput() {
         return output;
     }
 
-    public void setOutput(ReceiptOutputStrategy output) {
+    public final void setOutput(ReceiptOutputStrategy output) {
         this.output = output;
     }
     
@@ -85,11 +85,11 @@ public class Receipt {
         this.ds = ds;
     }
 
-    public LineItem[] getListOfitem() {
+    public final LineItem[] getListOfitem() {
         return listOfitem;
     }
 
-    public void setListOfitem(LineItem[] listOfitem) {
+    public final void setListOfitem(LineItem[] listOfitem) {
         this.listOfitem = listOfitem;
     }
     

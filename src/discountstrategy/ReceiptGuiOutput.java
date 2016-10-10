@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
 public class ReceiptGuiOutput implements ReceiptOutputStrategy {
     
   @Override
-  public void printReceipt(String output){
+  public final void printReceipt(String output){
       JOptionPane.showMessageDialog(null, output);
       
   }

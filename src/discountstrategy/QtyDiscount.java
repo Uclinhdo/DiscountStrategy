@@ -38,11 +38,11 @@ public class QtyDiscount implements DiscountStrategy {
         this.discountRate = discountRate;
     }    
 
-    public int getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public final void setQty(int qty) {
         this.qty = qty;
     }
     
