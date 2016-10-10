@@ -25,7 +25,7 @@ public class Receipt {
     private final String datetime;
     private double totalSubtotal;
     private double totalDiscount; 
-    private DecimalFormat formatter = new DecimalFormat("####.00");
+    private final DecimalFormat formatter = new DecimalFormat("####.00");
     
     public Receipt(String customerId,DataStorage ds,ReceiptOutputStrategy output) {
         this.ds = ds;
