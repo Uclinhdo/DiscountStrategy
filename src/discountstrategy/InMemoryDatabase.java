@@ -17,7 +17,10 @@ public class InMemoryDatabase implements DataStorage {
            
     private Product [] products = { new Product("A123","Brewers BLue Hat",29.90, new NoDiscount()),
                                     new Product("B345","Calvin Klein Blue Jeans",88.50,new PercentOffDiscount(0.10)),
-                                    new Product("C157","Lamb Chop-Pet Toy",5.25,new QtyDiscount(.10,5))
+                                    new Product("C157","Lamb Chop-Pet Toy",5.25,new QtyDiscount(.10,5)),
+                                    new Product("D456","Black Plain Jacket",98.75,new NoDiscount()),
+                                    new Product("E789","Sunglasses Polarized",121.00,new PercentOffDiscount(0.10)),
+                                    new Product("F567","Converse Red Shoes",56.90,new QtyDiscount(.10,5))
                                   };
     
     

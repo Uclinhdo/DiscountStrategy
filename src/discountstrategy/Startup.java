@@ -17,7 +17,7 @@ public class Startup {
     public static void main(String[] args) {
         // TODO code application logic here
        DataStorage ds = new InMemoryDatabase();
-       ReceiptOutputStrategy output = new ReceiptGuiOutput();
+       ReceiptOutputStrategy output = new ReceiptConsoleOutput();
       
        
         Register reg = new Register();
@@ -25,11 +25,13 @@ public class Startup {
         reg.startNewSale("DUTL",ds,output);
         reg.addProduct("A123",2);
         reg.addProduct("B345",7);
+        reg.addProduct("D456", 1);
         reg.endSale();
         
         reg.startNewSale("MTRA",ds,output);
         reg.addProduct("C157",4);
         reg.addProduct("A123",1);
+        reg.addProduct("E789", 1);
         reg.endSale();
         
     }

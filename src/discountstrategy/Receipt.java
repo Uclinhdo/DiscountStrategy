@@ -5,6 +5,7 @@
  */
 package discountstrategy;
 
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,6 +25,7 @@ public class Receipt {
     private final String datetime;
     private double totalSubtotal;
     private double totalDiscount; 
+    private DecimalFormat formatter = new DecimalFormat("####.00");
     
     public Receipt(String customerId,DataStorage ds,ReceiptOutputStrategy output) {
         this.ds = ds;
@@ -108,14 +110,15 @@ public class Receipt {
             data.append(item.getProduct().getDescription()).append("\t");
             data.append(item.getProduct().getUnitPrice()).append("\t");
             data.append(item.getQty()).append("\t");
-            data.append(item.getSubTotal()).append("\t\t");
-            data.append(item.getDiscount()).append("\t").append("\n\n");
+            data.append(formatter.format(item.getSubTotal())).append("\t\t");
+            data.append(formatter.format(item.getDiscount())).append("\t").append("\n\n");
         }
         data.append("\t\t\t\t\t\t\t");
-        data.append("Total: ").append(totalSubtotal).append("\t");
-        data.append("Total Saved: ").append(totalDiscount).append("\n\n");
+        data.append("Total: ").append(formatter.format(totalSubtotal)).append("\t");
+        data.append("Total Saved: ").append(formatter.format(totalDiscount)).append("\n\n");
         data.append(DASHED).append("\n");
-        data.append("Grand Total: ").append(totalSubtotal - totalDiscount).append("\n\n");
+        data.append("\t\t\t\t\t\t\t\t");
+        data.append("Grand Total: ").append(String.format("%.2f",(totalSubtotal - totalDiscount))).append("\n\n");
         data.append("Thank you for shopping at KOHLS!\n");
         data.append(DASHED).append("\n");
         data.append(DASHED);
