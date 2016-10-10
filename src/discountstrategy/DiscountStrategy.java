@@ -11,10 +11,10 @@ package discountstrategy;
  */
 public interface DiscountStrategy {
 
-    double getDiscountRate();
+    
 
-    double getdiscountAmount(double unitPrice, int qty);
+    public abstract double getdiscountAmount(double unitPrice, int qty);
 
-    void setDiscountRate(double discountRate);
+   
     
 }

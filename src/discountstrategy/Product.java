@@ -20,8 +20,10 @@ public class Product {
         this.description = description;
         this.unitPrice = unitPrice;
         this.discountStrategy = discountStrategy;
+        
     }
-
+    
+   
     public final String getProductId() {
         return productId;
     }

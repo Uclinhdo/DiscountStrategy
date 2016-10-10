@@ -16,12 +16,22 @@ public class Startup {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+       DataStorage ds = new InMemoryDatabase();
+       ReceiptOutputStrategy output = new ReceiptGuiOutput();
+      
        
         Register reg = new Register();
-        reg.startNewSale("DUTL");
+       
+        reg.startNewSale("DUTL",ds,output);
         reg.addProduct("A123",2);
         reg.addProduct("B345",7);
         reg.endSale();
+        
+        reg.startNewSale("MTRA",ds,output);
+        reg.addProduct("C157",4);
+        reg.addProduct("A123",1);
+        reg.endSale();
+        
     }
     
 }

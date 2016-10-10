@@ -11,6 +11,6 @@ package discountstrategy;
  */
 public interface ReceiptOutputStrategy {
 
-    public abstract void printReceipt(Receipt receipt);
+    public abstract void printReceipt(String output);
     
 }

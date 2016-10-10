@@ -10,22 +10,31 @@ package discountstrategy;
  * @author ldo
  */
 public class Register {
-    private Product product;
+    
     private Receipt receipt;
     
+    
+    
  
-    public void endSale(){
+    public final void endSale(){
+        receipt.outputReceipt();
         
     }
 
-    public void startNewSale(String customerId) {
+    public final void startNewSale(String customerId, DataStorage ds,ReceiptOutputStrategy output) {
         
-        
+       receipt = new Receipt(customerId,ds,output);
     }
 
-   public void addProduct(String productId, int qty) {
-        receipt.AddItemToReceipt(productId, qty);
+   public final void addProduct(String productId, int qty) {
+        receipt.addItemToReceipt(productId, qty);
     }
+
+   
+
+ 
+
+   
 
    
     

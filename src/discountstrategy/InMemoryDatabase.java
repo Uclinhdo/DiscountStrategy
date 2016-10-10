@@ -9,7 +9,7 @@ package discountstrategy;
  *
  * @author linhdo
  */
-public class MakeupDatabase implements DataStorage {
+public class InMemoryDatabase implements DataStorage {
    private Customer [] customers= { new Customer ("DUTL","Linh","Do","888-888-8888"),
                                     new Customer ("MTRA","Matt","Ament","123-456-7890"),
                                     new Customer ("HEAE","Ares","Ament","999-999-9999")
@@ -23,11 +23,7 @@ public class MakeupDatabase implements DataStorage {
     
     @Override
     public final Customer findValidCustomer(String customerId){
-        if(customerId == null || customerId.length() == 0){
-            System.out.println("Sorry, KOHL Database System cannot " +
-                    "find your data!");
-            return null;
-        }
+        
         Customer validcustomer = null;
         for(Customer customer : customers){
             if(customerId.equals(customer.getCustomerId())){
@@ -42,11 +38,7 @@ public class MakeupDatabase implements DataStorage {
     
     @Override
     public final Product findValidProduct(String productId){
-        if(productId == null || productId.length()==0){
-            System.out.println("Sorry, KOHL Database System cannot " +
-                    "find the product data!");
-            return null;
-        }
+        
         Product validproduct = null;
         for (Product product : products){
             if(productId.equals(product.getProductId())){

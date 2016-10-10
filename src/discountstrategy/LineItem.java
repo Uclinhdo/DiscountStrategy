@@ -11,52 +11,50 @@ package discountstrategy;
  */
 public class LineItem {
     private int qty;
-    private double subTotal;
-    private double discountTotal;
     private Product product;
-
-    public LineItem(int qty, Product product) {
+    
+    public LineItem(String productId, int qty, DataStorage ds) {
         this.qty = qty;
-        this.product = product;
+        product = ds.findValidProduct(productId);
+       
+        
     }
 
+    public final double getDiscount()
+    {
+        return product.getDiscountStrategy().getdiscountAmount(product.getUnitPrice(), qty);
+    }
     
     
-    
-    public int getQty() {
+    public final int getQty() {
         return qty;
     }
 
-    public void setQty(int qty) {
+    public final void setQty(int qty) {
         this.qty = qty;
     }
 
-    public double getSubTotal() {
-        return subTotal;
+    public final double getSubTotal() {
+        return qty * product.getUnitPrice();
     }
 
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
+    
+
+    public final double getDiscountTotal() {
+        return product.getDiscountStrategy().getdiscountAmount(product.getUnitPrice(), qty);
     }
 
-    public double getDiscountTotal() {
-        return discountTotal;
-    }
-
-    public void setDiscountTotal(double discountTotal) {
-        this.discountTotal = discountTotal;
-    }
-
-    public Product getProduct() {
+   
+    public final Product getProduct() {
         return product;
     }
 
-    public void setProduct(Product product) {
+    public final void setProduct(Product product) {
         this.product = product;
     }
     
     
-    
+   
     
     
     

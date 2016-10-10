@@ -11,8 +11,8 @@ package discountstrategy;
  */
 public interface DataStorage {
 
-    Customer findValidCustomer(String customerId);
+    public abstract Customer findValidCustomer(String customerId);
 
-    Product findValidProduct(String productId);
+    public abstract Product findValidProduct(String productId);
     
 }

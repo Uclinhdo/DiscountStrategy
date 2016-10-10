@@ -24,16 +24,16 @@ public class QtyDiscount implements DiscountStrategy {
         if(qty == 5){
             return  unitPrice * qty * discountRate;
         }else{
-            return unitPrice * qty;
+            return 0;
         }
     }
 
-    @Override
+   
     public final double getDiscountRate() {
         return discountRate;
     }
 
-    @Override
+    
     public final void setDiscountRate(double discountRate) {
         this.discountRate = discountRate;
     }    

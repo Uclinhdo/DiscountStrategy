@@ -94,7 +94,12 @@ public class Customer {
     }
     
     
-    
+    public final String getFullname()
+    {
+        String fullname;
+        fullname = firstName + " " +  lastName;
+        return fullname;
+    }
     
     
 }
