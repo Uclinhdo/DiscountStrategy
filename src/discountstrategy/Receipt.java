@@ -20,7 +20,7 @@ public class Receipt {
     private ReceiptOutputStrategy output;
     private final Date currentDate =new Date();
     private final SimpleDateFormat date = new SimpleDateFormat("EEE, MMM d, yyyy hh:mm aaa");
-    private int receiptNo;
+    private static int receiptNo;
     private final String DASHED = "--------------------------------------------------------------------------------------------";
     private final String datetime;
     private double totalSubtotal;
@@ -32,8 +32,14 @@ public class Receipt {
         this.customer = ds.findValidCustomer(customerId);
         this.output = output;
         this.listOfitem = new LineItem[0];
-         receiptNo++;
+        
         this.datetime = date.format(currentDate);
+    }
+    //everytime start new sale we need to increase recepit No, so we
+    //have to create a method to increaseReceipt No and 
+    //call it in the startnewsale method.
+    public void incrementReceiptNo() {
+        ++Receipt.receiptNo;
     }
 
     
@@ -100,7 +106,7 @@ public class Receipt {
        StringBuilder data = new StringBuilder("Welcome to Kohls Department Store \n");
        data.append("Customer Name: ").append(customer.getFullname()).append("\n");
        data.append("Date of Sales : ").append(datetime).append("\n");
-       data.append("Receipt No: ").append(receiptNo).append("\n");
+       data.append("Receipt No: ").append(Receipt.receiptNo).append("\n");
        data.append("Product ID\tProduct Name\t\tPrice\tQty\tSubtotal\tDiscount").append("\n\n");
        data.append(DASHED).append("\n\n");
 

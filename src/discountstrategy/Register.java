@@ -24,6 +24,7 @@ public class Register {
     public final void startNewSale(String customerId, DataStorage ds,ReceiptOutputStrategy output) {
         
        receipt = new Receipt(customerId,ds,output);
+       receipt.incrementReceiptNo();
     }
 
    public final void addProduct(String productId, int qty) {
